@@ -1209,7 +1209,7 @@ except ApiException as e:
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
  -H "Authorization: Bearer [[accessToken]]"\
 -H "Accept: application/json"\
-"//api/products?page=&order=&filter="</code></pre>
+"//api/products?page=&orderBy=&order=&filter=&filterBy="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Products-apiGetProductsList-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1228,10 +1228,12 @@ public class ProductsApiExample {
 
         ProductsApi apiInstance = new ProductsApi();
         Integer page = 56; // Integer | The page number
-        Integer order = 56; // Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+        String orderBy = orderBy_example; // String | Set to sort the result by orderBy property
+        String order = order_example; // String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
         String filter = filter_example; // String | Set to filter by filterBy property
+        String filterBy = filterBy_example; // String | Set to filter the result by the filterBy property
         try {
-            array[Product-read] result = apiInstance.apiGetProductsList(page, order, filter);
+            array[Product-read] result = apiInstance.apiGetProductsList(page, orderBy, order, filter, filterBy);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProductsApi#apiGetProductsList");
@@ -1249,10 +1251,12 @@ public class ProductsApiExample {
     public static void main(String[] args) {
         ProductsApi apiInstance = new ProductsApi();
         Integer page = 56; // Integer | The page number
-        Integer order = 56; // Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+        String orderBy = orderBy_example; // String | Set to sort the result by orderBy property
+        String order = order_example; // String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
         String filter = filter_example; // String | Set to filter by filterBy property
+        String filterBy = filterBy_example; // String | Set to filter the result by the filterBy property
         try {
-            array[Product-read] result = apiInstance.apiGetProductsList(page, order, filter);
+            array[Product-read] result = apiInstance.apiGetProductsList(page, orderBy, order, filter, filterBy);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProductsApi#apiGetProductsList");
@@ -1268,15 +1272,19 @@ public class ProductsApiExample {
                             <div class="tab-pane" id="examples-Products-apiGetProductsList-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
 Integer *page = 56; // The page number (optional) (default to 1)
-Integer *order = 56; // Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional)
+String *orderBy = orderBy_example; // Set to sort the result by orderBy property (optional) (default to createdAt)
+String *order = order_example; // Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional) (default to asc)
 String *filter = filter_example; // Set to filter by filterBy property (optional)
+String *filterBy = filterBy_example; // Set to filter the result by the filterBy property (optional)
 
 ProductsApi *apiInstance = [[ProductsApi alloc] init];
 
 // Retrieves the collection of Product resources.
 [apiInstance apiGetProductsListWith:page
+    orderBy:orderBy
     order:order
     filter:filter
+    filterBy:filterBy
               completionHandler: ^(array[Product-read] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -1296,8 +1304,10 @@ var defaultClient = BileMoApi.ApiClient.instance;
 var api = new BileMoApi.ProductsApi()
 var opts = { 
   'page': 56, // {{Integer}} The page number
-  'order': 56, // {{Integer}} Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
-  'filter': filter_example // {{String}} Set to filter by filterBy property
+  'orderBy': orderBy_example, // {{String}} Set to sort the result by orderBy property
+  'order': order_example, // {{String}} Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+  'filter': filter_example, // {{String}} Set to filter by filterBy property
+  'filterBy': filterBy_example // {{String}} Set to filter the result by the filterBy property
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -1330,13 +1340,15 @@ namespace Example
 
             var apiInstance = new ProductsApi();
             var page = 56;  // Integer | The page number (optional)  (default to 1)
-            var order = 56;  // Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional) 
+            var orderBy = orderBy_example;  // String | Set to sort the result by orderBy property (optional)  (default to createdAt)
+            var order = order_example;  // String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional)  (default to asc)
             var filter = filter_example;  // String | Set to filter by filterBy property (optional) 
+            var filterBy = filterBy_example;  // String | Set to filter the result by the filterBy property (optional) 
 
             try
             {
                 // Retrieves the collection of Product resources.
-                array[Product-read] result = apiInstance.apiGetProductsList(page, order, filter);
+                array[Product-read] result = apiInstance.apiGetProductsList(page, orderBy, order, filter, filterBy);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1356,11 +1368,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiProductsApi();
 $page = 56; // Integer | The page number
-$order = 56; // Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+$orderBy = orderBy_example; // String | Set to sort the result by orderBy property
+$order = order_example; // String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
 $filter = filter_example; // String | Set to filter by filterBy property
+$filterBy = filterBy_example; // String | Set to filter the result by the filterBy property
 
 try {
-    $result = $api_instance->apiGetProductsList($page, $order, $filter);
+    $result = $api_instance->apiGetProductsList($page, $orderBy, $order, $filter, $filterBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsApi->apiGetProductsList: ', $e->getMessage(), PHP_EOL;
@@ -1376,11 +1390,13 @@ use WWW::SwaggerClient::ProductsApi;
 
 my $api_instance = WWW::SwaggerClient::ProductsApi->new();
 my $page = 56; # Integer | The page number
-my $order = 56; # Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+my $orderBy = orderBy_example; # String | Set to sort the result by orderBy property
+my $order = order_example; # String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
 my $filter = filter_example; # String | Set to filter by filterBy property
+my $filterBy = filterBy_example; # String | Set to filter the result by the filterBy property
 
 eval { 
-    my $result = $api_instance->apiGetProductsList(page => $page, order => $order, filter => $filter);
+    my $result = $api_instance->apiGetProductsList(page => $page, orderBy => $orderBy, order => $order, filter => $filter, filterBy => $filterBy);
     print Dumper($result);
 };
 if ($@) {
@@ -1399,12 +1415,14 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.ProductsApi()
 page = 56 # Integer | The page number (optional) (default to 1)
-order = 56 # Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional)
+orderBy = orderBy_example # String | Set to sort the result by orderBy property (optional) (default to createdAt)
+order = order_example # String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional) (default to asc)
 filter = filter_example # String | Set to filter by filterBy property (optional)
+filterBy = filterBy_example # String | Set to filter the result by the filterBy property (optional)
 
 try: 
     # Retrieves the collection of Product resources.
-    api_response = api_instance.api_get_products_list(page=page, order=order, filter=filter)
+    api_response = api_instance.api_get_products_list(page=page, orderBy=orderBy, order=order, filter=filter, filterBy=filterBy)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ProductsApi->apiGetProductsList: %s\n" % e)</code></pre>
@@ -1442,6 +1460,25 @@ except ApiException as e:
                                     </div>
                                 </td>
                                 </tr>
+                                <tr><td style="width:150px;">orderBy</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_apiGetProductsList_orderBy">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Set to sort the result by orderBy property
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
                                 <tr><td style="width:150px;">order</td>
                                 <td>
                                 
@@ -1450,7 +1487,7 @@ except ApiException as e:
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
-                                                    Integer
+                                                    String
                                                 </span>
                                 
                                                     <div class="inner description">
@@ -1474,6 +1511,25 @@ except ApiException as e:
                                 
                                                     <div class="inner description">
                                                         Set to filter by filterBy property
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">filterBy</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_apiGetProductsList_filterBy">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Set to filter the result by the filterBy property
                                                     </div>
                                             </div>
                                         </div>
@@ -2212,7 +2268,7 @@ except ApiException as e:
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
  -H "Authorization: Bearer [[accessToken]]"\
 -H "Accept: application/json"\
-"//api/users?page=&order=&filter="</code></pre>
+"//api/users?page=&orderBy=&order=&filter=&filterBy="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Users-apiGetUsersList-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2231,10 +2287,12 @@ public class UsersApiExample {
 
         UsersApi apiInstance = new UsersApi();
         Integer page = 56; // Integer | The page number
-        Integer order = 56; // Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+        String orderBy = orderBy_example; // String | Set to sort the result by orderBy property
+        String order = order_example; // String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
         String filter = filter_example; // String | Set to filter by filterBy property
+        String filterBy = filterBy_example; // String | Set to filter the result by the filterBy property
         try {
-            array[User-read] result = apiInstance.apiGetUsersList(page, order, filter);
+            array[User-read] result = apiInstance.apiGetUsersList(page, orderBy, order, filter, filterBy);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#apiGetUsersList");
@@ -2252,10 +2310,12 @@ public class UsersApiExample {
     public static void main(String[] args) {
         UsersApi apiInstance = new UsersApi();
         Integer page = 56; // Integer | The page number
-        Integer order = 56; // Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+        String orderBy = orderBy_example; // String | Set to sort the result by orderBy property
+        String order = order_example; // String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
         String filter = filter_example; // String | Set to filter by filterBy property
+        String filterBy = filterBy_example; // String | Set to filter the result by the filterBy property
         try {
-            array[User-read] result = apiInstance.apiGetUsersList(page, order, filter);
+            array[User-read] result = apiInstance.apiGetUsersList(page, orderBy, order, filter, filterBy);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#apiGetUsersList");
@@ -2271,15 +2331,19 @@ public class UsersApiExample {
                             <div class="tab-pane" id="examples-Users-apiGetUsersList-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
 Integer *page = 56; // The page number (optional) (default to 1)
-Integer *order = 56; // Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional)
+String *orderBy = orderBy_example; // Set to sort the result by orderBy property (optional) (default to createdAt)
+String *order = order_example; // Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional) (default to asc)
 String *filter = filter_example; // Set to filter by filterBy property (optional)
+String *filterBy = filterBy_example; // Set to filter the result by the filterBy property (optional)
 
 UsersApi *apiInstance = [[UsersApi alloc] init];
 
 // Retrieves the collection of User resources.
 [apiInstance apiGetUsersListWith:page
+    orderBy:orderBy
     order:order
     filter:filter
+    filterBy:filterBy
               completionHandler: ^(array[User-read] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -2299,8 +2363,10 @@ var defaultClient = BileMoApi.ApiClient.instance;
 var api = new BileMoApi.UsersApi()
 var opts = { 
   'page': 56, // {{Integer}} The page number
-  'order': 56, // {{Integer}} Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
-  'filter': filter_example // {{String}} Set to filter by filterBy property
+  'orderBy': orderBy_example, // {{String}} Set to sort the result by orderBy property
+  'order': order_example, // {{String}} Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+  'filter': filter_example, // {{String}} Set to filter by filterBy property
+  'filterBy': filterBy_example // {{String}} Set to filter the result by the filterBy property
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -2333,13 +2399,15 @@ namespace Example
 
             var apiInstance = new UsersApi();
             var page = 56;  // Integer | The page number (optional)  (default to 1)
-            var order = 56;  // Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional) 
+            var orderBy = orderBy_example;  // String | Set to sort the result by orderBy property (optional)  (default to createdAt)
+            var order = order_example;  // String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional)  (default to asc)
             var filter = filter_example;  // String | Set to filter by filterBy property (optional) 
+            var filterBy = filterBy_example;  // String | Set to filter the result by the filterBy property (optional) 
 
             try
             {
                 // Retrieves the collection of User resources.
-                array[User-read] result = apiInstance.apiGetUsersList(page, order, filter);
+                array[User-read] result = apiInstance.apiGetUsersList(page, orderBy, order, filter, filterBy);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2359,11 +2427,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiUsersApi();
 $page = 56; // Integer | The page number
-$order = 56; // Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+$orderBy = orderBy_example; // String | Set to sort the result by orderBy property
+$order = order_example; // String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
 $filter = filter_example; // String | Set to filter by filterBy property
+$filterBy = filterBy_example; // String | Set to filter the result by the filterBy property
 
 try {
-    $result = $api_instance->apiGetUsersList($page, $order, $filter);
+    $result = $api_instance->apiGetUsersList($page, $orderBy, $order, $filter, $filterBy);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->apiGetUsersList: ', $e->getMessage(), PHP_EOL;
@@ -2379,11 +2449,13 @@ use WWW::SwaggerClient::UsersApi;
 
 my $api_instance = WWW::SwaggerClient::UsersApi->new();
 my $page = 56; # Integer | The page number
-my $order = 56; # Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
+my $orderBy = orderBy_example; # String | Set to sort the result by orderBy property
+my $order = order_example; # String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property
 my $filter = filter_example; # String | Set to filter by filterBy property
+my $filterBy = filterBy_example; # String | Set to filter the result by the filterBy property
 
 eval { 
-    my $result = $api_instance->apiGetUsersList(page => $page, order => $order, filter => $filter);
+    my $result = $api_instance->apiGetUsersList(page => $page, orderBy => $orderBy, order => $order, filter => $filter, filterBy => $filterBy);
     print Dumper($result);
 };
 if ($@) {
@@ -2402,12 +2474,14 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.UsersApi()
 page = 56 # Integer | The page number (optional) (default to 1)
-order = 56 # Integer | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional)
+orderBy = orderBy_example # String | Set to sort the result by orderBy property (optional) (default to createdAt)
+order = order_example # String | Set to (asc) or (desc) to sort with ascending/descending order by orderBy property (optional) (default to asc)
 filter = filter_example # String | Set to filter by filterBy property (optional)
+filterBy = filterBy_example # String | Set to filter the result by the filterBy property (optional)
 
 try: 
     # Retrieves the collection of User resources.
-    api_response = api_instance.api_get_users_list(page=page, order=order, filter=filter)
+    api_response = api_instance.api_get_users_list(page=page, orderBy=orderBy, order=order, filter=filter, filterBy=filterBy)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->apiGetUsersList: %s\n" % e)</code></pre>
@@ -2445,6 +2519,25 @@ except ApiException as e:
                                     </div>
                                 </td>
                                 </tr>
+                                <tr><td style="width:150px;">orderBy</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_apiGetUsersList_orderBy">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Set to sort the result by orderBy property
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
                                 <tr><td style="width:150px;">order</td>
                                 <td>
                                 
@@ -2453,7 +2546,7 @@ except ApiException as e:
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
-                                                    Integer
+                                                    String
                                                 </span>
                                 
                                                     <div class="inner description">
@@ -2477,6 +2570,25 @@ except ApiException as e:
                                 
                                                     <div class="inner description">
                                                         Set to filter by filterBy property
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">filterBy</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_apiGetUsersList_filterBy">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                                    <div class="inner description">
+                                                        Set to filter the result by the filterBy property
                                                     </div>
                                             </div>
                                         </div>
